@@ -1,9 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LinksController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,3 +20,6 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login', 'login')->name('login');
 
 });
+
+
+Route::middleware(['auth:sanctum'])->resource('links', LinksController::class)->except(['show']);

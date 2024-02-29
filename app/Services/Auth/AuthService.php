@@ -2,11 +2,11 @@
 
 namespace App\Services\Auth;
 
-use App\Http\Requests\LoginRequest;
-use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthService
 {
@@ -26,11 +26,15 @@ class AuthService
 
     public function login(LoginRequest $request): JsonResponse
     {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $token = auth()->user()->createToken('loginToken')->accessToken->token;
-            return response()->json(['message'=>'OK!', 'token' => $token]);
-        } else {
-            return response()->json(['error' => 'Unauthorized'], 401);
+        $user = User::query()->where('email', trim(strtolower($request->email)))->first();
+        if ($user) {
+            if (!empty($user->password) && Hash::check($request->password, $user->password)) {
+                $tokenName = 'default_token';
+
+                $token = $user->createToken($tokenName)->plainTextToken;
+                return response()->json(['message' => 'OK!', 'token' => $token]);
+            }
         }
+        return response()->json(['error' => 'Unauthorized'], 401);
     }
 }
