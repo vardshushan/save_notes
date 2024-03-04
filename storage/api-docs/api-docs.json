@@ -101,6 +101,34 @@
                     }
                 }
             }
+        },
+        "/api/links": {
+            "get": {
+                "tags": [
+                    "Saved Links"
+                ],
+                "summary": "get Saved links",
+                "operationId": "getSavedLinks",
+                "requestBody": {
+                    "description": "get Saved links",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {}
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/UnAuthorizedResource"
+                    }
+                }
+            }
         }
     },
     "components": {
