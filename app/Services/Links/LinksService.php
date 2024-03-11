@@ -60,7 +60,7 @@ class LinksService
             $link = Links::query()->findOrFail($id);
 
             if ($link->user_id !== Auth::user()->id) {
-                return response()->json(['message' => "Unauthorized"], 403);
+                return response()->json(['message' => "This link is not yours."], 403);
             }
 
             $link->delete();
