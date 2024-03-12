@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountCredentialsController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LinksController;
@@ -23,3 +24,4 @@ Route::controller(AuthController::class)->group(function () {
 
 
 Route::middleware(['auth:sanctum'])->resource('links', LinksController::class)->except(['show']);
+Route::middleware(['auth:sanctum'])->resource('credentials', AccountCredentialsController::class)->except(['show']);
