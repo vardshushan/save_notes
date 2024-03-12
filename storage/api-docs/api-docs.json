@@ -124,7 +124,113 @@
                     "200": {
                         "$ref": "#/components/responses/SuccessResponse"
                     },
-                    "401": {
+                    "500": {
+                        "$ref": "#/components/responses/UnAuthorizedResource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Saved Links"
+                ],
+                "summary": "create new link",
+                "operationId": "createLink",
+                "requestBody": {
+                    "description": "create new link",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "link"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "link": {
+                                        "type": "string",
+                                        "example": "https://test.com/"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/UnAuthorizedResource"
+                    }
+                }
+            }
+        },
+        "/api/links/{id}": {
+            "delete": {
+                "tags": [
+                    "Saved Links"
+                ],
+                "summary": "delete Link",
+                "operationId": "delete Link",
+                "requestBody": {
+                    "description": "delete Saved link",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {}
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/UnAuthorizedResource"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Saved Links"
+                ],
+                "summary": "update Link",
+                "operationId": "update Link",
+                "requestBody": {
+                    "description": "update Saved link",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "link"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "link": {
+                                        "type": "string",
+                                        "example": "https://test.com/"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "500": {
                         "$ref": "#/components/responses/UnAuthorizedResource"
                     }
                 }
