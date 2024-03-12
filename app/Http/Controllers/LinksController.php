@@ -31,7 +31,7 @@ class LinksController extends Controller
             ),
             new OA\Response(
                 ref: '#/components/responses/UnAuthorizedResource',
-                response: 401
+                response: 500
             ),
         ]
     )]
