@@ -14,6 +14,7 @@ class AccountCredentialsService
         try {
             AccountCredential::query()->create([
                 'user_id' => Auth::user()->id,
+                'title' => $request->title,
                 'username' => $request->username,
                 'password' => $request->password,
                 'phone_number' => $request->phone_number,
@@ -38,6 +39,7 @@ class AccountCredentialsService
 
             $credential->update([
                 'user_id' => Auth::user()->id,
+                'title' => $request->title,
                 'username' => $request->username,
                 'password' => $request->password,
                 'phone_number' => $request->phone_number,

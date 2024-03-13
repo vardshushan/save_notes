@@ -15,6 +15,178 @@
         }
     ],
     "paths": {
+        "/api/credentials": {
+            "get": {
+                "tags": [
+                    "Account Credentials"
+                ],
+                "summary": "get account credentials",
+                "operationId": "getCredentials",
+                "requestBody": {
+                    "description": "get credentials list",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {}
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/UnAuthorizedResource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Account Credentials"
+                ],
+                "summary": "create new credential",
+                "operationId": "createCredential",
+                "requestBody": {
+                    "description": "create new credential",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "title"
+                                    },
+                                    "username": {
+                                        "type": "string",
+                                        "example": "username"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "*********"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "test@gmail.com"
+                                    },
+                                    "token": {
+                                        "type": "string",
+                                        "example": "token"
+                                    },
+                                    "phone_number": {
+                                        "type": "string",
+                                        "example": "+37494254568"
+                                    },
+                                    "other": {
+                                        "type": "string",
+                                        "example": "other information"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/UnAuthorizedResource"
+                    }
+                }
+            }
+        },
+        "/api/credentials/{id}": {
+            "delete": {
+                "tags": [
+                    "Account Credentials"
+                ],
+                "summary": "delete Link",
+                "operationId": "deleteCredential",
+                "requestBody": {
+                    "description": "delete credential",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {}
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/UnAuthorizedResource"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Account Credentials"
+                ],
+                "summary": "update credentials",
+                "operationId": "updateCredentials",
+                "requestBody": {
+                    "description": "update credentials",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "title"
+                                    },
+                                    "username": {
+                                        "type": "string",
+                                        "example": "username"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "*********"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "test@gmail.com"
+                                    },
+                                    "token": {
+                                        "type": "string",
+                                        "example": "token"
+                                    },
+                                    "phone_number": {
+                                        "type": "string",
+                                        "example": "+37494254568"
+                                    },
+                                    "other": {
+                                        "type": "string",
+                                        "example": "other information"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/UnAuthorizedResource"
+                    }
+                }
+            }
+        },
         "/api/register": {
             "post": {
                 "tags": [
@@ -175,7 +347,7 @@
                     "Saved Links"
                 ],
                 "summary": "delete Link",
-                "operationId": "delete Link",
+                "operationId": "deleteLink",
                 "requestBody": {
                     "description": "delete Saved link",
                     "content": {
@@ -201,7 +373,7 @@
                     "Saved Links"
                 ],
                 "summary": "update Link",
-                "operationId": "update Link",
+                "operationId": "updateLink",
                 "requestBody": {
                     "description": "update Saved link",
                     "content": {

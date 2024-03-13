@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('account_credentials', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('title');
             $table->string('username')->nullable();
             $table->string('password')->nullable();
             $table->string('phone_number')->nullable();

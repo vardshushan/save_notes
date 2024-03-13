@@ -83,7 +83,7 @@ class LinksController extends Controller
 
     #[OA\Patch(
         path: '/api/links/{id}',
-        operationId: 'update Link',
+        operationId: 'updateLink',
         summary: 'update Link',
         requestBody: new OA\RequestBody(
             description: 'update Saved link',
@@ -122,7 +122,7 @@ class LinksController extends Controller
 
     #[OA\Delete(
         path: '/api/links/{id}',
-        operationId: 'delete Link',
+        operationId: 'deleteLink',
         summary: 'delete Link',
         requestBody: new OA\RequestBody(
             description: 'delete Saved link',
