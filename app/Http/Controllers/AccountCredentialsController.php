@@ -41,15 +41,156 @@ class AccountCredentialsController extends Controller
         return $this->accountCredentialsService->getCredential();
     }
 
+    #[OA\Post(
+        path: '/api/credentials',
+        operationId: 'createCredential',
+        summary: 'create new credential',
+        requestBody: new OA\RequestBody(
+            description: 'create new credential',
+            content: new OA\JsonContent(
+                required: ['title'],
+                properties: [
+                    new OA\Property(
+                        property: 'title',
+                        type: 'string',
+                        example: 'title'
+                    ),
+                    new OA\Property(
+                        property: 'username',
+                        type: 'string',
+                        example: 'username'
+                    ),
+                    new OA\Property(
+                        property: 'password',
+                        type: 'string',
+                        example: '*********'
+                    ),
+                    new OA\Property(
+                        property: 'email',
+                        type: 'string',
+                        example: 'test@gmail.com'
+                    ),
+                    new OA\Property(
+                        property: 'token',
+                        type: 'string',
+                        example: 'token'
+                    ),
+                    new OA\Property(
+                        property: 'phone_number',
+                        type: 'string',
+                        example: '+37494254568'
+                    ),
+                    new OA\Property(
+                        property: 'other',
+                        type: 'string',
+                        example: 'other information'
+                    ),
+                ]
+            )
+        ),
+        tags: ['Account Credentials'],
+        responses: [
+            new OA\Response(
+                ref: '#/components/responses/SuccessResponse',
+                response: 200
+            ),
+            new OA\Response(
+                ref: '#/components/responses/UnAuthorizedResource',
+                response: 500
+            ),
+        ]
+    )]
     public function store(AccountCredentialsRequest $request): JsonResponse
     {
         return $this->accountCredentialsService->createCredential($request);
     }
-
+    #[OA\Patch(
+        path: '/api/credentials/{id}',
+        operationId: 'updateCredentials',
+        summary: 'update credentials',
+        requestBody: new OA\RequestBody(
+            description: 'update credentials',
+            content: new OA\JsonContent(
+                required: ['title'],
+                properties: [
+                    new OA\Property(
+                        property: 'title',
+                        type: 'string',
+                        example: 'title'
+                    ),
+                    new OA\Property(
+                        property: 'username',
+                        type: 'string',
+                        example: 'username'
+                    ),
+                    new OA\Property(
+                        property: 'password',
+                        type: 'string',
+                        example: '*********'
+                    ),
+                    new OA\Property(
+                        property: 'email',
+                        type: 'string',
+                        example: 'test@gmail.com'
+                    ),
+                    new OA\Property(
+                        property: 'token',
+                        type: 'string',
+                        example: 'token'
+                    ),
+                    new OA\Property(
+                        property: 'phone_number',
+                        type: 'string',
+                        example: '+37494254568'
+                    ),
+                    new OA\Property(
+                        property: 'other',
+                        type: 'string',
+                        example: 'other information'
+                    ),
+                ]
+            )
+        ),
+        tags: ['Account Credentials'],
+        responses: [
+            new OA\Response(
+                ref: '#/components/responses/SuccessResponse',
+                response: 200
+            ),
+            new OA\Response(
+                ref: '#/components/responses/UnAuthorizedResource',
+                response: 500
+            ),
+        ]
+    )]
     public function update(AccountCredentialsRequest $request, string $id): JsonResponse
     {
         return $this->accountCredentialsService->updateCredential($request, $id);
     }
+
+    #[OA\Delete(
+        path: '/api/credentials/{id}',
+        operationId: 'deleteCredential',
+        summary: 'delete Link',
+        requestBody: new OA\RequestBody(
+            description: 'delete credential',
+            content: new OA\JsonContent(
+                required: [],
+                properties: []
+            )
+        ),
+        tags: ['Account Credentials'],
+        responses: [
+            new OA\Response(
+                ref: '#/components/responses/SuccessResponse',
+                response: 200
+            ),
+            new OA\Response(
+                ref: '#/components/responses/UnAuthorizedResource',
+                response: 500
+            ),
+        ]
+    )]
 
     public function destroy(string $id): JsonResponse
     {
