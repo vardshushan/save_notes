@@ -16,6 +16,8 @@ class AccountCredential extends Model
         'token',
         'password',
         'other',
-        'user_id'
+        'user_id',
+        'type',
+        'title'
     ];
 }
