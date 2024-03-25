@@ -100,9 +100,9 @@ class AccountCredentialsController extends Controller
             ),
         ]
     )]
-    public function store(AccountCredentialsRequest $request): JsonResponse
+    public function store(AccountCredentialsRequest $accountCredentialsRequest): JsonResponse
     {
-        return $this->accountCredentialsService->createCredential($request);
+        return $this->accountCredentialsService->createCredential($accountCredentialsRequest);
     }
     #[OA\Patch(
         path: '/api/credentials/{id}',
@@ -163,9 +163,9 @@ class AccountCredentialsController extends Controller
             ),
         ]
     )]
-    public function update(AccountCredentialsRequest $request, string $id): JsonResponse
+    public function update(AccountCredentialsRequest $accountCredentialsRequest, string $id): JsonResponse
     {
-        return $this->accountCredentialsService->updateCredential($request, $id);
+        return $this->accountCredentialsService->updateCredential($accountCredentialsRequest, $id);
     }
 
     #[OA\Delete(
