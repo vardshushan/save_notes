@@ -407,6 +407,81 @@
                     }
                 }
             }
+        },
+        "/api/folder": {
+            "post": {
+                "tags": [
+                    "Lists"
+                ],
+                "summary": "create new folder for list",
+                "operationId": "createFolder",
+                "requestBody": {
+                    "description": "create new folder",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "title"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/UnAuthorizedResource"
+                    }
+                }
+            }
+        },
+        "/api/list": {
+            "post": {
+                "tags": [
+                    "Lists"
+                ],
+                "summary": "create new list item",
+                "operationId": "createListItem",
+                "requestBody": {
+                    "description": "create new list item",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "folder_id",
+                                    "title"
+                                ],
+                                "properties": {
+                                    "folder_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "title"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/UnAuthorizedResource"
+                    }
+                }
+            }
         }
     },
     "components": {

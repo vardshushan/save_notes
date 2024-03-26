@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AccountCredentialsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ListFolderController;
+use App\Http\Controllers\ListItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LinksController;
 /*
@@ -25,3 +27,5 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::middleware(['auth:sanctum'])->resource('links', LinksController::class)->except(['show']);
 Route::middleware(['auth:sanctum'])->resource('credentials', AccountCredentialsController::class)->except(['show']);
+Route::middleware(['auth:sanctum'])->resource('folder', ListFolderController::class)->except(['show']);
+Route::middleware(['auth:sanctum'])->resource('list', ListItemController::class)->except(['show']);
