@@ -12,6 +12,40 @@ class ListItemController
     {
     }
 
+    #[OA\Post(
+        path: '/api/list',
+        operationId: 'createListItem',
+        summary: 'create new list item',
+        requestBody: new OA\RequestBody(
+            description: 'create new list item',
+            content: new OA\JsonContent(
+                required: ['folder_id', 'title'],
+                properties: [
+                    new OA\Property(
+                        property: 'folder_id',
+                        type: 'integer',
+                        example: 1
+                    ),
+                    new OA\Property(
+                        property: 'title',
+                        type: 'string',
+                        example: 'title'
+                    ),
+                ]
+            )
+        ),
+        tags: ['Lists'],
+        responses: [
+            new OA\Response(
+                ref: '#/components/responses/SuccessResponse',
+                response: 200
+            ),
+            new OA\Response(
+                ref: '#/components/responses/UnAuthorizedResource',
+                response: 500
+            ),
+        ]
+    )]
     public function store(ListItemRequest $request): JsonResponse|string
     {
         return $this->listItemService->createListItem($request);
