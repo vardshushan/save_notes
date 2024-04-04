@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests\Lists;
 
-use App\Enums\ListStatus;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class ListItemRequest extends FormRequest
 {

@@ -2,7 +2,6 @@
 
 namespace App\Services\ListFolders;
 
-
 use App\Enums\ListStatus;
 use App\Models\Folder;
 use App\Models\ListItem;

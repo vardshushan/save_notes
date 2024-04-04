@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Resources\Auth;
+
 use OpenApi\Attributes as OA;
 
 #[OA\Response(
@@ -12,7 +13,6 @@ use OpenApi\Attributes as OA;
         ]
     )
 )]
-
 class SuccessResponse
 {
 

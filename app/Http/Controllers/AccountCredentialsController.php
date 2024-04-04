@@ -10,8 +10,9 @@ use OpenApi\Attributes as OA;
 class AccountCredentialsController extends Controller
 {
 
-    public function __construct( private readonly AccountCredentialsService $accountCredentialsService)
-    {}
+    public function __construct(private readonly AccountCredentialsService $accountCredentialsService)
+    {
+    }
 
     #[OA\Get(
         path: '/api/credentials',
@@ -104,6 +105,7 @@ class AccountCredentialsController extends Controller
     {
         return $this->accountCredentialsService->createCredential($accountCredentialsRequest);
     }
+
     #[OA\Patch(
         path: '/api/credentials/{id}',
         operationId: 'updateCredentials',
@@ -191,7 +193,6 @@ class AccountCredentialsController extends Controller
             ),
         ]
     )]
-
     public function destroy(string $id): JsonResponse
     {
         return $this->accountCredentialsService->deleteCredential($id);

@@ -23,10 +23,11 @@ class CreateLinkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>['required', 'string', 'min:3'],
-            'link'=>['required', 'string', 'min:5']
+            'title' => ['required', 'string', 'min:3'],
+            'link' => ['required', 'string', 'min:5']
         ];
     }
+
     public function messages(): array
     {
         return [

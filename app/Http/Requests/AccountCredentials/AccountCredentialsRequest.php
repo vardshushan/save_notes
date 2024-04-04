@@ -23,14 +23,15 @@ class AccountCredentialsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username'=>['string'],
-            'password'=>['string'],
-            'phone_number'=>['string'],
-            'email'=>['string', 'email'],
-            'token'=>['string'],
-            'other'=>['string']
+            'username' => ['string'],
+            'password' => ['string'],
+            'phone_number' => ['string'],
+            'email' => ['string', 'email'],
+            'token' => ['string'],
+            'other' => ['string']
         ];
     }
+
     public function messages(): array
     {
         return [
