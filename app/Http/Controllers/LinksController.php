@@ -9,8 +9,9 @@ use OpenApi\Attributes as OA;
 
 class LinksController extends Controller
 {
-    public function __construct( private readonly LinksService $linksService)
-    {}
+    public function __construct(private readonly LinksService $linksService)
+    {
+    }
 
     #[OA\Get(
         path: '/api/links',
@@ -77,7 +78,7 @@ class LinksController extends Controller
     )]
     public function store(CreateLinkRequest $request): JsonResponse
     {
-       return $this->linksService->createLink($request);
+        return $this->linksService->createLink($request);
     }
 
 

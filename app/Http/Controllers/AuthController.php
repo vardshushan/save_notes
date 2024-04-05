@@ -11,8 +11,9 @@ use OpenApi\Attributes as OA;
 class AuthController extends Controller
 {
 
-    public function __construct( private readonly AuthService $authService)
-    {}
+    public function __construct(private readonly AuthService $authService)
+    {
+    }
 
     #[OA\Post(
         path: '/api/register',
@@ -50,7 +51,7 @@ class AuthController extends Controller
                 ref: '#/components/responses/SuccessResponse',
                 response: 200
             ),
-       new OA\Response(
+            new OA\Response(
                 ref: '#/components/responses/ServerErrorResource',
                 response: 500
             ),
